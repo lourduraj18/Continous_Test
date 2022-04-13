@@ -3,6 +3,7 @@ package com.demo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -32,6 +33,9 @@ public class LoginApp_Test {
 	  @BeforeClass
 	  public void beforeClass() {
 		  WebDriverManager.chromedriver().setup();
+		  ChromeOptions options = new ChromeOptions();
+			options.setHeadless(true);
+			driver= new ChromeDriver(options);
 		    driver = new ChromeDriver();
 			driver.get("http://demowebshop.tricentis.com/");
 			driver.manage().window().maximize();
